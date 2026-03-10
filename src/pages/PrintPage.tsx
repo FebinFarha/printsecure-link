@@ -122,7 +122,9 @@ const PrintPage = () => {
       session: sessionId,
     });
 
-    window.print();
+    setTimeout(() => {
+      window.print();
+    }, 100);
   };
 
   if (loading) {
