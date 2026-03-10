@@ -109,15 +109,6 @@
   .no-print {
     display: none !important;
   }
-
-  .print-only {
-    filter: none !important;
-    -webkit-filter: none !important;
-  }
-
-  .print-watermark {
-    display: none !important;
-  }
 }
 
 /* Prevent text selection on secure pages */

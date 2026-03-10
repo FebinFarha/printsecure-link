@@ -202,28 +202,26 @@ const PrintPage = () => {
           </CardContent>
         </Card>
 
-        {/* Secure Print Area (visible during print) */}
+        {/* Secure Print Area (hidden on screen, only visible during print) */}
         {verified && fileUrl && (
-          <div ref={printRef} className="print-only relative">
+          <div ref={printRef} className="hidden print:block relative">
             {/* Watermark */}
-            <div className="print-watermark absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-10">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-10">
               <p className="text-6xl font-bold text-foreground rotate-[-30deg]">SECURE PRINT ONLY</p>
             </div>
-            {/* Document with blur (removed during print via CSS) */}
+            {/* Document (clear during print) */}
             <div className="relative">
               {job?.file_name?.endsWith(".pdf") ? (
                 <iframe
                   src={fileUrl}
-                  className="w-full h-[80vh] print-only"
-                  style={{ filter: "blur(4px)" }}
+                  className="w-full h-[80vh]"
                   title="Document"
                 />
               ) : (
                 <img
                   src={fileUrl}
                   alt="Document"
-                  className="w-full print-only"
-                  style={{ filter: "blur(4px)" }}
+                  className="w-full"
                   draggable={false}
                   onDragStart={(e) => e.preventDefault()}
                 />
