@@ -14,13 +14,61 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      print_jobs: {
+        Row: {
+          created_at: string
+          expires_at: string
+          file_name: string
+          file_path: string
+          id: string
+          max_attempts: number
+          otp_attempts: number
+          otp_code: string
+          placeholder_path: string | null
+          printed: boolean
+          session_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          expires_at?: string
+          file_name: string
+          file_path: string
+          id?: string
+          max_attempts?: number
+          otp_attempts?: number
+          otp_code: string
+          placeholder_path?: string | null
+          printed?: boolean
+          session_id?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          expires_at?: string
+          file_name?: string
+          file_path?: string
+          id?: string
+          max_attempts?: number
+          otp_attempts?: number
+          otp_code?: string
+          placeholder_path?: string | null
+          printed?: boolean
+          session_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      mark_as_printed: {
+        Args: { job_id: string; session: string }
+        Returns: Json
+      }
+      verify_otp: { Args: { job_id: string; otp: string }; Returns: Json }
     }
     Enums: {
       [_ in never]: never
