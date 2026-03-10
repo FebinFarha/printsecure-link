@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Printer, Shield, Lock, AlertTriangle, CheckCircle } from "lucide-react";
+import { Printer, Shield, Lock, TriangleAlert as AlertTriangle, CircleCheck as CheckCircle } from "lucide-react";
 import type { Tables } from "@/integrations/supabase/types";
 
 type PrintJob = Tables<"print_jobs">;
