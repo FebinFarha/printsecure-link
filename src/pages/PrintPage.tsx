@@ -93,9 +93,9 @@ const PrintPage = () => {
 
   const fetchSecureFile = async (sid: string) => {
     try {
-      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
       const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/serve-document`,
+        `${supabaseUrl}/functions/v1/serve-document`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
